@@ -23,7 +23,7 @@ class ArticleController(private val articleRepository: ArticleRepository) {
 
     @GetMapping("/articles/{id}")
     fun getArticleById(@PathVariable(value = "id") articleId: Long): ResponseEntity<Article> {
-        return articleRepository.findById(articleId).map { article -> 
+        return articleRepository.findById(articleId).map { article: Article -> 
             ResponseEntity.ok(article)
         }.orElse(ResponseEntity.notFound().build())
     }
